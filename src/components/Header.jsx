@@ -43,12 +43,14 @@ const Header = () => {
           <ul className="desktop-nav">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <a href={link.href} className="nav-link">{link.name}</a>
+                <a 
+                  href={link.href} 
+                  className={link.name === 'Contact' ? 'nav-link btn-contact' : 'nav-link'}
+                >
+                  {link.name}
+                </a>
               </li>
             ))}
-            <li>
-              <a href="#contact" className="btn btn-primary">Get Quote</a>
-            </li>
           </ul>
 
           {/* Mobile Menu Button */}
@@ -145,6 +147,22 @@ const Header = () => {
 
         .nav-link:hover {
           color: var(--color-secondary);
+        }
+
+        .btn-contact {
+          background-color: var(--color-secondary);
+          color: white;
+          padding: 0.5rem 1.5rem;
+          border-radius: var(--radius-full);
+          font-weight: 600;
+          transition: all 0.3s ease;
+        }
+
+        .btn-contact:hover {
+          background-color: #dc2626;
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
         }
 
         .mobile-menu-btn {
